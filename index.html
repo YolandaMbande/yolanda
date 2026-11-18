@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Yolanda | Software Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="case-study.css">
+</head>
+<body>
+  <div class="frame">
+
+    <nav class="tabs" id="tabsLeft" aria-label="Sections">
+      <!-- row-reverse puts "about" next to the hero, "contact" on the far left -->
+      <a class="tab" data-order="0" href="#about"><span class="num">002</span><span class="word">about</span></a>
+      <a class="tab" data-order="1" href="#work"><span class="num">003</span><span class="word">work</span></a>
+      <a class="tab" data-order="2" href="#contact"><span class="num">004</span><span class="word">contact</span></a>
+    </nav>
+    <nav class="tabs tabs-right" id="tabsRight" aria-label="Opened sections"></nav>
+
+    <main class="pages">
+
+      <!-- ===== WELCOME ===== -->
+      <section class="page hero current" id="home">
+        <div class="intro">
+          <h1>Hi, I’m<br>Yolanda.</h1>
+          <p class="alt">Go on, give the photo a little nudge.</p>
+          <p class="lead">I build things for the web, experiment with ideas, and occasionally make the browser do things it probably shouldn’t.</p>
+          <a class="btn" href="#work">See my work</a>
+        </div>
+
+        <div class="particle-stage">
+          <canvas id="dots" aria-label="Meditating human figure made of particles"></canvas>
+          <div class="particle-shadow"></div>
+          <label class="photo-upload">
+            Try your photo ♡
+            <input type="file" id="pick" accept="image/*" hidden>
+          </label>
+        </div>
+      </section>
+
+      <!-- ===== ABOUT ===== -->
+      <section class="page about" id="about-page" aria-label="About">
+        <div class="about-head">
+          <div class="photo-slot">
+            <div class="photo-frame" id="photoFrame" title="Drag me around. Double-click to put me back!">
+              <img id="aboutPhoto" alt="Portrait of Yolanda" draggable="false">
+            </div>
+          </div>
+          <h1>About</h1>
+          <p class="tagline">Building thoughtful digital experiences through code.</p>
+        </div>
+
+        <div class="about-body">
+          <h2>Hello, stranger.</h2>
+          <p>I’m Yolanda, a software developer with a background in Computer Science and an interest in building practical, well-designed digital solutions.</p>
+          <p>My experience spans full-stack development, working with technologies such as PHP, Laravel, JavaScript and Java. I’ve worked on web applications, developed features, resolved bugs and collaborated on projects where functionality and usability go hand in hand.</p>
+          <p>I’m particularly interested in the process of turning ideas into working products: understanding a problem, exploring possible solutions and building something that is both useful and intuitive to use. I enjoy learning, experimenting with new technologies and continuously improving the way I approach development.</p>
+          <p>And here's a little plot twist: this entire website is built with HTML, CSS and JavaScript. No fancy frameworks, just code. Pretty cool, right?</p>
+          <h2>Experience</h2>
+          <ul class="jobs">
+            <li><div class="job-info"><strong>Freelance Work</strong><span class="job-role">Freelance Software Developer</span><span>Working independently on web development projects, building responsive interfaces, implementing features and refining functionality based on project requirements.</span></div><time>2025 – Current</time></li>
+            <li><div class="job-info"><strong>Spacebar Solutions (Pty) Ltd</strong><span class="job-role">Junior Software Developer</span><span>Developed web application features, worked on frontend functionality and contributed to ongoing improvements.</span></div><time>2025 – 2026</time></li>
+            <li><div class="job-info"><strong>Teambix (Pty) Ltd</strong><span class="job-role">Software Developer Intern</span><span>Contributed to full-stack application development, including frontend features, backend functionality and database work.</span></div><time>2024 – 2025</time></li>
+            <li><div class="job-info"><strong>Tshwane University of Tech</strong><span class="job-role">Tutor &amp; Mentor</span><span>Supported students through tutoring and mentoring in Internet Security and Database Programming.</span></div><time>2025 – 2026</time></li>
+          </ul>
+          <a class="text-link" href="#work">See what I’ve built
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+          </a>
+
+          <h2>Outside work</h2>
+          <p>I’m an avid writer, sharing thoughts and ideas on platforms like Substack and Hashnode. I’m also big on continuous learning, always exploring new technologies, expanding my skills and finding new things to experiment with.</p>
+
+          <div class="actions">
+            <a class="btn" href="#contact">Get in touch</a>
+            <a class="btn outline" href="documents/Yolanda%20Mbande%20Software%20Developer%20CV.pdf" target="_blank" rel="noopener noreferrer">Résumé (PDF)</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== WORK ===== -->
+      <section class="page work" id="work-page" aria-label="Work">
+        <div class="about-head">
+          <h1>Work</h1>
+          <p class="tagline">Projects I designed and built on my own.</p>
+          <a class="marquee" href="#contact" aria-label="Get in touch">
+            <span class="marquee-track" aria-hidden="true"><span>GET IN TOUCH •</span><span>GET IN TOUCH •</span><span>GET IN TOUCH •</span><span>GET IN TOUCH •</span><span>GET IN TOUCH •</span><span>GET IN TOUCH •</span></span>
+            <span class="marquee-track" aria-hidden="true"><span>GET IN TOUCH •</span><span>GET IN TOUCH •</span><span>GET IN TOUCH •</span><span>GET IN TOUCH •</span><span>GET IN TOUCH •</span><span>GET IN TOUCH •</span></span>
+          </a>
+        </div>
+
+        <div class="about-body">
+          <h2>Selected projects</h2>
+          <p>Made on my own</p>
+          <ul class="projects">
+            <li><a class="project" href="https://unsaid-92n9.onrender.com/" target="_blank" rel="noopener noreferrer" data-preview="images/unsaid.jpeg"><span class="p-num">01</span><span class="p-main"><strong>Unsaid</strong><span class="p-desc">An AI-powered conversational companion designed to give people a private space to express themselves and unpack their thoughts.</span><span class="p-meta">PHP · Laravel · MySQL · JavaScript · AI</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li>
+            <li><a class="project" href="https://yolandambande.github.io/nestashots/" target="_blank" rel="noopener noreferrer" data-preview="images/nestashots-02.png"><span class="p-num">02</span><span class="p-main"><strong>Nestashots</strong><span class="p-desc">A photography portfolio and photoshoot booking website showcasing galleries, photography packages and services.</span><span class="p-meta">HTML · CSS · JavaScript · Web</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li>
+            <li><a class="project" href="https://yolanda-links.vercel.app/" target="_blank" rel="noopener noreferrer" data-preview="images/link-card-mai.png"><span class="p-num">03</span><span class="p-main"><strong>Link Card</strong><span class="p-desc">A personal link hub bringing social profiles, websites and online platforms together in one place.</span><span class="p-meta">HTML · CSS · JavaScript</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li>
+            <li><a class="project" href="https://block-puzzle-amber.vercel.app/" target="_blank" rel="noopener noreferrer" data-preview="images/block-jewel-main.png"><span class="p-num">04</span><span class="p-main"><strong>Block Jewel</strong><span class="p-desc">A colourful block puzzle game where players place pieces, clear rows and build combos.</span><span class="p-meta">HTML · CSS · JavaScript · Game Development</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li>
+            <li><a class="project" href="https://github.com/YolandaMbande/easybooking" target="_blank" rel="noopener noreferrer" data-preview="images/easybooking.png"><span class="p-num">05</span><span class="p-main"><strong>EasyBooking</strong><span class="p-desc">An event booking and management platform that helps organisers manage events while attendees discover and book them.</span><span class="p-meta">Web · Event Management · Booking System</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li>
+            <li><a class="project" href="https://yolandambande.github.io/what-now/" target="_blank" rel="noopener noreferrer" data-preview="images/what-now-main.png"><span class="p-num">06</span><span class="p-main"><strong>WHAT NOW?</strong><span class="p-desc">A South African adulting guide covering the everyday questions and responsibilities nobody really prepares you for.</span><span class="p-meta">HTML · CSS · JavaScript · Web</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li>
+            <li><a class="project" href="https://yolandambande.github.io/Cascade-Inspector/" target="_blank" rel="noopener noreferrer" data-preview="images/cascade-inspector-main.jpeg"><span class="p-num">07</span><span class="p-main"><strong>Cascade Inspector</strong><span class="p-desc">An interactive CSS debugging tool for inspecting cascade conflicts, overridden rules and live styles.</span><span class="p-meta">HTML · CSS · JavaScript · Developer Tools</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li>
+            <li><a class="project" href="https://yolandambande.github.io/home-sweet-hound/" target="_blank" rel="noopener noreferrer" data-preview="images/home-sweet-hound-main.png"><span class="p-num">08</span><span class="p-main"><strong>Home Sweet Hound</strong><span class="p-desc">An interactive pet adoption guide helping future pet parents understand adoption, costs and responsibilities.</span><span class="p-meta">HTML · CSS · JavaScript · Web</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li>
+            <li><a class="project" href="https://yolandambande.github.io/just-today/" target="_blank" rel="noopener noreferrer" data-preview="images/just-today.png"><span class="p-num">09</span><span class="p-main"><strong>Just Today</strong><span class="p-desc">A gentle daily habit tracker focused on helping people stay consistent without streaks, pressure or accounts.</span><span class="p-meta">HTML · CSS · JavaScript · Web</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===== CONTACT ===== -->
+      <section class="page contact" id="contact-page" aria-label="Contact">
+
+        <div class="contact-head">
+          <h1>Contact</h1>
+          <p class="tagline">Don’t be a stranger. Email is the fastest way to reach me, or send a message here.</p>
+        </div>
+
+        <div class="contact-content">
+
+          <!-- LEFT: CONTACT DETAILS -->
+          <div class="contact-direct">
+            <h2>Reach me directly</h2>
+
+            <div class="contact-links">
+
+              <div class="contact-item">
+                <div>
+                  <small>Email</small>
+                  <!-- TODO: put YOUR email here (both the href and the text) -->
+                  <a id="emailLink" href="mailto:y_mbande@icloud.com">y_mbande@icloud.com</a>
+                </div>
+                <button class="contact-action" type="button" id="copyEmail">Copy</button>
+              </div>
+
+              <div class="contact-item">
+                <div>
+                  <small>LinkedIn</small>
+                  <!-- TODO: put YOUR LinkedIn link and name here -->
+                  <a href="https://www.linkedin.com/in/your-handle" target="_blank" rel="noopener noreferrer">Your Name</a>
+                </div>
+                <a href="https://www.linkedin.com/in/your-handle" target="_blank" rel="noopener noreferrer" aria-label="Open LinkedIn">↗</a>
+              </div>
+
+              <div class="contact-item">
+                <div>
+                  <small>GitHub</small>
+                  <a href="https://github.com/YolandaMbande" target="_blank" rel="noopener noreferrer">YolandaMbande</a>
+                </div>
+                <a href="https://github.com/YolandaMbande" target="_blank" rel="noopener noreferrer" aria-label="Open GitHub">↗</a>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- RIGHT: MESSAGE FORM -->
+          <div class="contact-message">
+            <h2>Send a message</h2>
+
+            <form class="contact-form" id="contactForm" novalidate>
+
+              <div class="contact-fields">
+                <div>
+                  <label for="contactName">Name</label>
+                  <input type="text" id="contactName" name="name" autocomplete="name" required>
+                </div>
+                <div>
+                  <label for="contactEmail">Email</label>
+                  <input type="email" id="contactEmail" name="email" autocomplete="email" required>
+                </div>
+              </div>
+
+              <div>
+                <label for="contactMessage">Message</label>
+                <textarea id="contactMessage" name="message" rows="5" required></textarea>
+              </div>
+
+              <div class="contact-bottom">
+                <button type="submit" class="btn">Send message</button>
+                <p class="contact-note">I usually reply within a few days.</p>
+              </div>
+
+              <p class="form-status" id="formStatus" role="status"></p>
+
+            </form>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <aside class="rail" tabindex="0" aria-label="Home panel">
+      <span class="num">001</span>
+      <a class="logo" href="#home" aria-label="Home">Y</a>
+    </aside>
+
+  </div>
+
+<script src="script.js"></script>
+<script src="case-study.js"></script>
+</body>
+</html>
