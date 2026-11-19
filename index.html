@@ -11,6 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="case-study.css">
+<link rel="stylesheet" href="guestbook.css">
 </head>
 <body>
   <div class="frame">
@@ -20,6 +21,7 @@
       <a class="tab" data-order="0" href="#about"><span class="num">002</span><span class="word">about</span></a>
       <a class="tab" data-order="1" href="#work"><span class="num">003</span><span class="word">work</span></a>
       <a class="tab" data-order="2" href="#contact"><span class="num">004</span><span class="word">contact</span></a>
+      <a class="tab" data-order="3" href="#guestbook"><span class="num">005</span><span class="word">guestbook</span></a>
     </nav>
     <nav class="tabs tabs-right" id="tabsRight" aria-label="Opened sections"></nav>
 
@@ -191,6 +193,36 @@
         </div>
       </section>
 
+      <!-- ===== GUESTBOOK ===== -->
+<section class="page guestbook" id="guestbook-page" aria-label="Guestbook">
+  <div class="gb-top">
+    <div class="contact-head">
+      <h1>Guestbook</h1>
+      <p class="tagline">Drop a postcard. Make me look popular!♡</p>
+      <p class="gb-count" id="gbCount"></p>
+    </div>
+
+    <form class="gb-form" id="gbForm" autocomplete="off" novalidate>
+      <div class="gb-card gb-composer">
+        <div class="gb-msg"><textarea id="gbMessage" maxlength="240" aria-label="Your message" placeholder="Dear Yolanda,&#10;&#10;"></textarea></div>
+        <div class="gb-side">
+          <span class="gb-stamp" aria-hidden="true"><i>y</i></span>
+          <div class="gb-line"><input id="gbName" maxlength="40" aria-label="Your name" placeholder="Your name"></div>
+          <div class="gb-line"><input id="gbFrom" maxlength="40" aria-label="Where you’re writing from" placeholder="Writing from…"></div>
+        </div>
+      </div>
+      <div class="gb-hp" aria-hidden="true"><input id="gbHp" tabindex="-1"></div>
+      <div class="gb-bar">
+        <button type="submit" class="btn" id="gbSend">Pin it to the board</button>
+        <span class="gb-note" id="gbChars">0 / 240</span>
+        <p class="gb-note" id="gbStatus" role="status"></p>
+      </div>
+    </form>
+  </div>
+
+  <ol class="gb-board" id="gbBoard" aria-label="Postcards from visitors"></ol>
+</section>
+
     </main>
 
     <aside class="rail" tabindex="0" aria-label="Home panel">
@@ -202,5 +234,6 @@
 
 <script src="script.js"></script>
 <script src="case-study.js"></script>
+<script src="guestbook.js"></script>
 </body>
 </html>
