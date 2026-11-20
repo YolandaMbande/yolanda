@@ -1,10 +1,17 @@
 
-/* ---------- guestbook page (fifth panel, after contact) ---------- */
+/* ---------- guestbook page ---------- */
 .guestbook {
+  box-sizing: border-box;
   padding: 5vh 4vw 8vh;
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: rgba(17,17,17,.3) transparent;
+}
+
+.guestbook *,
+.guestbook *::before,
+.guestbook *::after {
+  box-sizing: border-box;
 }
 
 .gb-top {
@@ -24,7 +31,7 @@
   font-size: clamp(13px, 1vw, 17px);
 }
 
-/* ---------- postcard (composer + board share it) ---------- */
+/* ---------- postcard ---------- */
 .gb-card {
   position: relative;
   display: grid;
@@ -34,17 +41,22 @@
   background: #fff;
   border: 1px solid var(--ink);
   box-shadow: 6px 6px 0 rgba(17,17,17,.08);
+  min-width: 0;
 }
 
 .gb-card::before {
   content: "";
   position: absolute;
-  inset: 5px;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
   border: 1px solid rgba(17,17,17,.25);
   pointer-events: none;
 }
 
 .gb-msg {
+  min-width: 0;
   padding: clamp(16px, 1.8vw, 30px);
   border-right: 1px solid rgba(17,17,17,.18);
   font-family: "Playfair Display", serif;
@@ -62,6 +74,7 @@
   justify-content: flex-end;
   gap: clamp(10px, 1.1vw, 18px);
   padding: clamp(16px, 1.8vw, 30px);
+  min-width: 0;
 }
 
 .gb-stamp {
@@ -128,6 +141,7 @@
 .gb-composer textarea,
 .gb-composer input {
   width: 100%;
+  max-width: 100%;
   border: 0;
   background: transparent;
   color: var(--ink);
@@ -195,7 +209,7 @@
   font-size: clamp(13px, 1vw, 17px);
 }
 
-/* ---------- the board ---------- */
+/* ---------- postcard board ---------- */
 .gb-board {
   position: relative;
   min-height: clamp(320px, 38vw, 640px);
@@ -206,13 +220,13 @@
   background-image: radial-gradient(rgba(17,17,17,.13) 1px, transparent 1px);
   background-size: 22px 22px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr));
   gap: 4vw 3.4vw;
   align-items: start;
 }
 
 .gb-board .gb-card {
-  transform: translate(var(--dx, 0px), var(--dy, 0px)) rotate(var(--r));
+  transform: translate(var(--dx, 0px), var(--dy, 0px)) rotate(calc(var(--r) * var(--rs, 1)));
   margin-top: var(--y);
   cursor: grab;
   user-select: none;
@@ -221,10 +235,12 @@
   transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s;
 }
 
-.gb-board .gb-card:hover {
-  transform: translate(var(--dx, 0px), var(--dy, 0px)) rotate(0) scale(1.04);
-  box-shadow: 14px 16px 0 rgba(17,17,17,.1);
-  z-index: 2;
+@media (hover: hover) and (pointer: fine) {
+  .gb-board .gb-card:hover {
+    transform: translate(var(--dx, 0px), var(--dy, 0px)) rotate(0) scale(1.04);
+    box-shadow: 14px 16px 0 rgba(17,17,17,.1);
+    z-index: 2;
+  }
 }
 
 .gb-board .gb-card.dragging {
@@ -275,36 +291,34 @@
   }
 }
 
-/* ---------- mobile layout ---------- */
-@media (max-width: 800px) {
+/* ==================================================
+   TABLETS AND MOBILE
+================================================== */
+
+@media screen and (max-width: 800px) {
+
   .guestbook {
     display: block;
+    width: 100%;
     height: auto;
-    min-height: calc(100vh - var(--bar, 58px));
-    min-height: calc(100svh - var(--bar, 58px));
-    padding: 36px 20px 40px;
-    overflow: visible;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: 8vw 5vw calc(24vw + env(safe-area-inset-bottom, 0px));
+    overflow-x: hidden;
+    overflow-y: visible;
   }
 
   .gb-top {
+    width: 100%;
     grid-template-columns: minmax(0, 1fr);
-    gap: 28px;
+    gap: 7vw;
     align-items: start;
   }
 
   .gb-top .contact-head {
+    width: 100%;
+    min-width: 0;
     margin-bottom: 0;
-  }
-
-  .gb-top .contact-head h1 {
-    font-size: clamp(42px, 14vw, 64px);
-  }
-
-  .gb-top .contact-head .tagline {
-    margin-top: 12px;
-    max-width: none;
-    font-size: clamp(19px, 5.6vw, 24px);
-    line-height: 1.5;
   }
 
   .gb-count {
@@ -312,94 +326,271 @@
     font-size: 14px;
   }
 
+  /* Composer and visitor postcards */
   .gb-card {
+    width: 100%;
+    max-width: 100%;
     aspect-ratio: auto;
     min-height: 220px;
   }
 
   .gb-composer {
-    min-height: 300px;
+    min-height: 280px;
   }
 
-  .gb-msg,
-  .gb-side {
-    padding: 16px;
+  .gb-composer textarea,
+  .gb-composer input {
+    font-size: 16px;
+  }
+
+  .gb-stamp {
+    width: 34px;
+    height: 42px;
+  }
+
+  .gb-pm {
+    width: 46px;
+    height: 46px;
   }
 
   .gb-bar {
-    margin-top: 20px;
-    gap: 14px;
+    margin-top: 5vw;
   }
 
-  .gb-note {
-    font-size: 14px;
-  }
-
+  /* Board */
   .gb-board {
-    min-height: 300px;
-    margin: 40px 0 0;
-    padding: 28px 16px;
+    width: 100%;
+    min-height: 280px;
+    margin: 10vw 0 0;
+    padding: 7vw 5vw;
     grid-template-columns: minmax(0, 1fr);
-    gap: 36px;
+    gap: 8vw;
   }
 
   .gb-board .gb-card {
     width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* ==================================================
+   SMALL PHONES: iPhone 6s, SE, compact Android
+================================================== */
+
+@media screen and (max-width: 520px) {
+
+  .guestbook {
+    padding: 32px 18px calc(100px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .gb-top {
+    gap: 32px;
+  }
+
+  .gb-top .contact-head {
+    overflow-wrap: anywhere;
+  }
+
+  /* Stack postcard sections vertically */
+  .gb-card,
+  .gb-composer {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    min-height: 0;
+    aspect-ratio: auto;
+  }
+
+  .gb-msg {
+    width: 100%;
+    min-width: 0;
+    min-height: 125px;
+    padding: 18px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(17,17,17,.18);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .gb-composer .gb-msg {
+    min-height: 150px;
+  }
+
+  .gb-composer .gb-msg textarea {
+    display: block;
+    width: 100%;
+    height: 125px;
+    min-height: 125px;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .gb-side {
+    width: 100%;
+    min-height: 112px;
+    padding: 15px 105px 15px 18px;
+    justify-content: flex-start;
+    gap: 9px;
+  }
+
+  .gb-stamp {
+    top: 14px;
+    right: 14px;
+    width: 34px;
+    height: 42px;
+  }
+
+  .gb-pm {
+    top: auto;
+    bottom: 36px;
+    right: 57px;
+    width: 44px;
+    height: 44px;
+    font-size: 7px;
+  }
+
+  .gb-line {
+    min-width: 0;
+    font-size: 13px;
+  }
+
+  .gb-composer .gb-line input {
+    font-size: 16px;
+  }
+
+  .gb-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    margin-top: 18px;
+  }
+
+  .gb-form .btn {
+    width: 100%;
+    min-height: 46px;
+    padding: 12px 18px;
+  }
+
+  .gb-note {
+    text-align: center;
+    font-size: 13px;
+  }
+
+  /* Postcard board */
+  .gb-board {
+    margin-top: 42px;
+    padding: 30px 16px 24px;
+    gap: 34px;
+    grid-template-columns: minmax(0, 1fr);
+    background-size: 18px 18px;
+  }
+
+  .gb-board .gb-card {
+    grid-template-columns: minmax(0, 1fr);
     margin-top: 0;
+    --rs: .6;
+  }
+
+  .gb-board .gb-msg {
+    min-height: 115px;
+  }
+
+  .gb-board .gb-side {
+    min-height: 105px;
   }
 
   .gb-board .gb-card:hover {
     transform: translate(var(--dx, 0px), var(--dy, 0px)) rotate(0);
   }
-
-  .gb-empty {
-    padding: 30px 0;
-  }
 }
 
-/* ---------- very small phones ---------- */
-@media (max-width: 360px) {
+/* ==================================================
+   EXTRA SMALL PHONES: 320px–360px
+================================================== */
+
+@media screen and (max-width: 360px) {
+
   .guestbook {
-    padding: 32px 16px 36px;
+    padding: 28px 14px calc(90px + env(safe-area-inset-bottom, 0px));
   }
 
   .gb-top {
-    gap: 24px;
+    gap: 26px;
   }
 
-  .gb-msg,
+  .gb-msg {
+    padding: 15px;
+    font-size: 14px;
+  }
+
   .gb-side {
-    padding: 13px;
+    padding: 14px 94px 14px 15px;
+    gap: 8px;
+  }
+
+  .gb-stamp {
+    right: 10px;
+    width: 30px;
+    height: 38px;
+  }
+
+  .gb-pm {
+    right: 48px;
+    bottom: 32px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .gb-line {
+    font-size: 12px;
   }
 
   .gb-board {
-    padding: 24px 12px;
-    gap: 32px;
+    padding: 26px 12px 20px;
+    gap: 30px;
   }
 
   .gb-bar {
-    align-items: flex-start;
-    flex-direction: column;
+    gap: 10px;
   }
 }
 
-/* ---------- phones in landscape ---------- */
-@media (max-width: 800px) and (max-height: 480px) {
+/* ==================================================
+   LANDSCAPE PHONES
+================================================== */
+
+@media screen and (max-width: 800px) and (orientation: landscape) {
+
   .guestbook {
-    padding-top: 28px;
-    padding-bottom: 32px;
+    padding: 28px 5vw 70px;
   }
 
   .gb-top {
+    grid-template-columns: minmax(0, 1fr);
     gap: 24px;
   }
 
   .gb-composer {
-    min-height: 260px;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    min-height: 240px;
+  }
+
+  .gb-composer .gb-msg {
+    border-right: 1px solid rgba(17,17,17,.18);
+    border-bottom: 0;
+  }
+
+  .gb-composer .gb-msg textarea {
+    height: 150px;
+  }
+
+  .gb-board {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 20px;
   }
 }
 
-/* ---------- small x on a visitor's own postcard ---------- */
+/* ---------- postcard delete button ---------- */
 .gb-x {
   position: absolute;
   top: -11px;
