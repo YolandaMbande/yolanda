@@ -1,3 +1,4 @@
+
 /* ---------- guestbook page (fifth panel, after contact) ---------- */
 .guestbook {
   padding: 5vh 4vw 8vh;
@@ -5,14 +6,23 @@
   scrollbar-width: thin;
   scrollbar-color: rgba(17,17,17,.3) transparent;
 }
+
 .gb-top {
   display: grid;
   grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
   gap: 5vw;
   align-items: center;
 }
-.gb-top .contact-head { margin-bottom: 0; }   /* reuses the Contact page heading + tagline styles */
-.gb-count { margin-top: 1.5vw; color: var(--muted); font-size: clamp(13px, 1vw, 17px); }
+
+.gb-top .contact-head {
+  margin-bottom: 0;
+}
+
+.gb-count {
+  margin-top: 1.5vw;
+  color: var(--muted);
+  font-size: clamp(13px, 1vw, 17px);
+}
 
 /* ---------- postcard (composer + board share it) ---------- */
 .gb-card {
@@ -23,15 +33,17 @@
   min-height: 190px;
   background: #fff;
   border: 1px solid var(--ink);
-  box-shadow: 6px 6px 0 rgba(17,17,17,.08);   /* same offset shadow as the photo frame */
+  box-shadow: 6px 6px 0 rgba(17,17,17,.08);
 }
-.gb-card::before {                              /* thin inner line, like the photo mount */
+
+.gb-card::before {
   content: "";
   position: absolute;
   inset: 5px;
   border: 1px solid rgba(17,17,17,.25);
   pointer-events: none;
 }
+
 .gb-msg {
   padding: clamp(16px, 1.8vw, 30px);
   border-right: 1px solid rgba(17,17,17,.18);
@@ -42,6 +54,7 @@
   line-height: 1.55;
   overflow-wrap: anywhere;
 }
+
 .gb-side {
   position: relative;
   display: flex;
@@ -50,6 +63,7 @@
   gap: clamp(10px, 1.1vw, 18px);
   padding: clamp(16px, 1.8vw, 30px);
 }
+
 .gb-stamp {
   position: absolute;
   top: clamp(14px, 1.5vw, 24px);
@@ -59,6 +73,7 @@
   border: 1px solid var(--ink);
   padding: 3px;
 }
+
 .gb-stamp i {
   display: grid;
   place-items: center;
@@ -67,6 +82,7 @@
   font: italic 500 clamp(15px, 1.5vw, 25px)/1 "Playfair Display", serif;
   text-transform: lowercase;
 }
+
 .gb-pm {
   position: absolute;
   top: clamp(12px, 1.3vw, 20px);
@@ -85,6 +101,7 @@
   opacity: .75;
   transform: rotate(-14deg);
 }
+
 .gb-line {
   border-bottom: 1px solid rgba(17,17,17,.2);
   padding-bottom: .35em;
@@ -92,12 +109,24 @@
   font-size: clamp(12px, .95vw, 16px);
   overflow-wrap: anywhere;
 }
-.gb-line b { font-weight: 600; }
-.gb-line small { color: var(--muted); font-size: inherit; }
+
+.gb-line b {
+  font-weight: 600;
+}
+
+.gb-line small {
+  color: var(--muted);
+  font-size: inherit;
+}
 
 /* ---------- composer ---------- */
-.gb-composer { aspect-ratio: auto; min-height: clamp(230px, 22vw, 340px); }
-.gb-composer textarea, .gb-composer input {
+.gb-composer {
+  aspect-ratio: auto;
+  min-height: clamp(230px, 22vw, 340px);
+}
+
+.gb-composer textarea,
+.gb-composer input {
   width: 100%;
   border: 0;
   background: transparent;
@@ -106,21 +135,70 @@
   outline: none;
   border-radius: 0;
 }
-.gb-composer textarea { height: 100%; min-height: 150px; resize: none; font-style: italic; line-height: 1.55; }
-.gb-composer .gb-line { padding: 0; }
-.gb-composer .gb-line input { padding: .2em 0 .35em; }
-.gb-composer .gb-line:focus-within { border-bottom-color: var(--ink); }
-.gb-composer ::placeholder { color: var(--muted); opacity: .8; }
-.gb-hp { position: absolute; left: -9999px; height: 0; overflow: hidden; }
-.gb-bar { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-top: 1.4vw; }
-.gb-form .btn { margin: 0; border: 0; cursor: pointer; white-space: nowrap; }
-.gb-form .btn:disabled { opacity: .4; cursor: not-allowed; transform: none; }
-.gb-note { color: var(--muted); font-size: clamp(13px, 1vw, 17px); }
+
+.gb-composer textarea {
+  height: 100%;
+  min-height: 150px;
+  resize: none;
+  font-style: italic;
+  line-height: 1.55;
+}
+
+.gb-composer .gb-line {
+  padding: 0;
+}
+
+.gb-composer .gb-line input {
+  padding: .2em 0 .35em;
+}
+
+.gb-composer .gb-line:focus-within {
+  border-bottom-color: var(--ink);
+}
+
+.gb-composer ::placeholder {
+  color: var(--muted);
+  opacity: .8;
+}
+
+.gb-hp {
+  position: absolute;
+  left: -9999px;
+  height: 0;
+  overflow: hidden;
+}
+
+.gb-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 1.4vw;
+}
+
+.gb-form .btn {
+  margin: 0;
+  border: 0;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.gb-form .btn:disabled {
+  opacity: .4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.gb-note {
+  color: var(--muted);
+  font-size: clamp(13px, 1vw, 17px);
+}
 
 /* ---------- the board ---------- */
 .gb-board {
   position: relative;
-  min-height: clamp(320px, 38vw, 640px);            /* room to move the cards around */
+  min-height: clamp(320px, 38vw, 640px);
   list-style: none;
   margin: 5vw -1vw 0;
   padding: 4vw 3vw 3vw;
@@ -132,6 +210,7 @@
   gap: 4vw 3.4vw;
   align-items: start;
 }
+
 .gb-board .gb-card {
   transform: translate(var(--dx, 0px), var(--dy, 0px)) rotate(var(--r));
   margin-top: var(--y);
@@ -141,13 +220,20 @@
   -webkit-touch-callout: none;
   transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s;
 }
-.gb-board .gb-card:hover { transform: translate(var(--dx, 0px), var(--dy, 0px)) rotate(0) scale(1.04); box-shadow: 14px 16px 0 rgba(17,17,17,.1); z-index: 2; }
-.gb-board .gb-card.dragging {                       /* same lift as the dragged photo */
+
+.gb-board .gb-card:hover {
+  transform: translate(var(--dx, 0px), var(--dy, 0px)) rotate(0) scale(1.04);
+  box-shadow: 14px 16px 0 rgba(17,17,17,.1);
+  z-index: 2;
+}
+
+.gb-board .gb-card.dragging {
   cursor: grabbing;
   transform: translate(var(--dx, 0px), var(--dy, 0px)) rotate(3deg) scale(1.06);
   box-shadow: 14px 16px 0 rgba(17,17,17,.1);
   transition: box-shadow .25s;
 }
+
 .gb-pin {
   position: absolute;
   top: -8px;
@@ -160,18 +246,157 @@
   box-shadow: inset -2px -2px 0 rgba(255,255,255,.28), 2px 3px 0 rgba(17,17,17,.1);
   z-index: 1;
 }
-.gb-card.new { animation: gbDrop .7s cubic-bezier(.2,.8,.2,1); }
-@keyframes gbDrop { from { opacity: 0; transform: translateY(-30px) rotate(6deg); } }
-.gb-empty { grid-column: 1 / -1; color: var(--muted); text-align: center; padding: 4vw 0; }
-@media (prefers-reduced-motion: reduce) { .gb-board .gb-card { transition-duration: .01ms; } .gb-card.new { animation: none; } }
 
+.gb-card.new {
+  animation: gbDrop .7s cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes gbDrop {
+  from {
+    opacity: 0;
+    transform: translateY(-30px) rotate(6deg);
+  }
+}
+
+.gb-empty {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  text-align: center;
+  padding: 4vw 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gb-board .gb-card {
+    transition-duration: .01ms;
+  }
+
+  .gb-card.new {
+    animation: none;
+  }
+}
+
+/* ---------- mobile layout ---------- */
 @media (max-width: 800px) {
-  .guestbook { padding: 9vw 6vw 24vw; height: auto; overflow: visible; }
-  .gb-top { grid-template-columns: 1fr; gap: 8vw; }
-  .gb-card { aspect-ratio: auto; min-height: 220px; }
-  .gb-composer { min-height: 300px; }
-  .gb-bar { margin-top: 5vw; }
-  .gb-board { margin: 12vw 0 0; padding: 9vw 5vw; gap: 10vw; }
+  .guestbook {
+    display: block;
+    height: auto;
+    min-height: calc(100vh - var(--bar, 58px));
+    min-height: calc(100svh - var(--bar, 58px));
+    padding: 36px 20px 40px;
+    overflow: visible;
+  }
+
+  .gb-top {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    align-items: start;
+  }
+
+  .gb-top .contact-head {
+    margin-bottom: 0;
+  }
+
+  .gb-top .contact-head h1 {
+    font-size: clamp(42px, 14vw, 64px);
+  }
+
+  .gb-top .contact-head .tagline {
+    margin-top: 12px;
+    max-width: none;
+    font-size: clamp(19px, 5.6vw, 24px);
+    line-height: 1.5;
+  }
+
+  .gb-count {
+    margin-top: 14px;
+    font-size: 14px;
+  }
+
+  .gb-card {
+    aspect-ratio: auto;
+    min-height: 220px;
+  }
+
+  .gb-composer {
+    min-height: 300px;
+  }
+
+  .gb-msg,
+  .gb-side {
+    padding: 16px;
+  }
+
+  .gb-bar {
+    margin-top: 20px;
+    gap: 14px;
+  }
+
+  .gb-note {
+    font-size: 14px;
+  }
+
+  .gb-board {
+    min-height: 300px;
+    margin: 40px 0 0;
+    padding: 28px 16px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 36px;
+  }
+
+  .gb-board .gb-card {
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .gb-board .gb-card:hover {
+    transform: translate(var(--dx, 0px), var(--dy, 0px)) rotate(0);
+  }
+
+  .gb-empty {
+    padding: 30px 0;
+  }
+}
+
+/* ---------- very small phones ---------- */
+@media (max-width: 360px) {
+  .guestbook {
+    padding: 32px 16px 36px;
+  }
+
+  .gb-top {
+    gap: 24px;
+  }
+
+  .gb-msg,
+  .gb-side {
+    padding: 13px;
+  }
+
+  .gb-board {
+    padding: 24px 12px;
+    gap: 32px;
+  }
+
+  .gb-bar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+/* ---------- phones in landscape ---------- */
+@media (max-width: 800px) and (max-height: 480px) {
+  .guestbook {
+    padding-top: 28px;
+    padding-bottom: 32px;
+  }
+
+  .gb-top {
+    gap: 24px;
+  }
+
+  .gb-composer {
+    min-height: 260px;
+  }
 }
 
 /* ---------- small x on a visitor's own postcard ---------- */
@@ -190,5 +415,12 @@
   z-index: 3;
   transition: transform .2s;
 }
-.gb-x:hover { transform: scale(1.15); }
-.gb-x:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+.gb-x:hover {
+  transform: scale(1.15);
+}
+
+.gb-x:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
