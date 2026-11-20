@@ -96,7 +96,7 @@
 .gb-line small { color: var(--muted); font-size: inherit; }
 
 /* ---------- composer ---------- */
-.gb-composer { aspect-ratio: auto; min-height: clamp(230px, 22vw, 300px); }
+.gb-composer { aspect-ratio: auto; min-height: clamp(230px, 22vw, 340px); }
 .gb-composer textarea, .gb-composer input {
   width: 100%;
   border: 0;
@@ -128,7 +128,7 @@
   background-image: radial-gradient(rgba(17,17,17,.13) 1px, transparent 1px);
   background-size: 22px 22px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr));
   gap: 4vw 3.4vw;
   align-items: start;
 }
